@@ -9,8 +9,9 @@
 * **Rete (Network)**: È stata creata una rete privata di tipo bridge chiamata `app_network`. Questa scelta permette ai tre container di comunicare tra loro in modo sicuro risolvendo i nomi dei container (es. il servizio Python si collega all'host `db`), senza esporre il database direttamente sulla rete dell'host fisico.
 * **Volumi (Volumes)**: Sono stati configurati due volumi per garantire la persistenza dei dati e la condivisione:
     * `db_data`: Montato in `/var/lib/mysql` nel container del database. Garantisce che i dati di MySQL (incluso lo storico dei backup) non vadano persi se il container viene distrutto o riavviato.
-    * `shared_backups`: Montato in `/shared_backups` nei container applicativi. Funge da cartella condivisa in cui il servizio di backup salva i file `.zip` generati. *
-  ## 3. Funzionamento dei Servizi REST
+    * `shared_backups`: Montato in `/shared_backups` nei container applicativi. Funge da cartella condivisa in cui il servizio di backup salva i file `.zip` generati. 
+
+## 3. Funzionamento dei Servizi REST
 
 Le due applicazioni sono state sviluppate in Python utilizzando il micro-framework Flask.
 
